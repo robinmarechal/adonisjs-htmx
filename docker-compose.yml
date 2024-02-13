@@ -1,0 +1,20 @@
+version: '3.8'
+
+volumes:
+    db-data:
+
+networks:
+    backend:
+
+services:
+    postgres:
+        image: postgres:latest
+        restart: always
+        networks:
+            - backend
+        environment:
+            POSTGRES_PASSWORD: docker
+            POSTGRES_USER: docker
+            POSTGRES_DB: adonisjs-htmx
+        ports:
+            - 5432:5432
